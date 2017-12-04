@@ -1,4 +1,4 @@
-#!/usr/local/bin/php-cgi -f
+#!/usr/bin/env php
 <?php
 
 require_once('functions.inc');

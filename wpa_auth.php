@@ -1,36 +1,7 @@
-#!/usr/local/bin/php-cgi -f
+#!/usr/bin/env php
 <?php
 /*
 Performs 802.1x authentication on a pfSense system.
-
-# php wpa_auth.php --hash testpass123
-1efb50581482d84f9e57737b846a32b0
-
-# php wpa_auth.php --interface vmx2 --identity myusername --password 1efb50581482d84f9e57737b846a32b0
-
-# wpa_cli status
-Selected interface 'vmx2'
-bssid=xx:xx:xx:xx:xx:xx
-freq=0
-ssid=
-id=0
-mode=station
-pairwise_cipher=NONE
-group_cipher=NONE
-key_mgmt=IEEE 802.1X (no WPA)
-wpa_state=COMPLETED
-ip_address=1.2.3.4
-address=xx:xx:xx:xx:xx:xx
-Supplicant PAE state=AUTHENTICATED
-suppPortStatus=Authorized
-EAP state=SUCCESS
-selectedMethod=25 (EAP-PEAP)
-eap_tls_version=TLSv1.2
-EAP TLS cipher=ECDHE-RSA-AES256-GCM-SHA384
-tls_session_reused=0
-EAP-PEAPv1 Phase2 method=MSCHAPV2
-eap_session_id=<redacted>
-uuid=<redacted>
 */
 
 require_once('interfaces.inc');
