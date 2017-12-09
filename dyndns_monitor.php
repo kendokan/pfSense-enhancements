@@ -12,16 +12,16 @@ if (!is_carp_master($opts['interface']) && array_key_exists('enable', $dyndns)) 
   if (!$opts['quiet'])
     echo('Interface "' . $opts['interface'] . '" is not the master. Disabling dyndns for host ' . $opts['dyndns'] . '.' . PHP_EOL);
   unset($dyndns['enable']);
-  write_config('Dynamic DNS client disabled.');
-  services_dyndns_configure();
+  write_config(gettext("Dynamic DNS client configured."));
+  services_dyndns_configure_client($dyndns);;
 }
 elseif (is_carp_master($opts['interface']) && !array_key_exists('enable', $dyndns)) {
   if (!$opts['quiet'])
     echo('Enabling dyndns for host ' . $opts['dyndns'] . '.' . PHP_EOL);
-  $dyndns['enable'] = true;
-  $dyndns['force'] = true;
-  write_config('Dynamic DNS client enabled.');
-  services_dyndns_configure();
+  $dyndns['enable'] = 1;
+  $dyndns['force'] = 1;
+  write_config(gettext("Dynamic DNS client configured."));
+  services_dyndns_configure_client($dyndns);
 }
 
 function get_dyndns_id_by_host ($host) {
